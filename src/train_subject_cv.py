@@ -51,8 +51,8 @@ class Config:
     
     關鍵策略：
     - 漸進式解凍：Phase 1(凍結)→Phase 2(layer4)→Phase 3(layer3-4)
-    - 強正則化：L2(5e-4) + Dropout(0.6) + Stochastic Depth(0.2)
-    - 焦點損失：γ=2.0，重視困難樣本
+    - 正則化：L2(5e-4) + Dropout(0.3) + Stochastic Depth(0.1)
+    - 焦點損失：gamma=1.0，降低少數類別訓練不穩定性
     - HDF5 數據：雙域通道 (11238, 2, 224, 224)，受試者級交叉驗證
     """
     
@@ -468,8 +468,8 @@ class FocalLoss(nn.Module):
     焦點損失 - 重視困難樣本，抑制簡單樣本
     
     公式：FL = -α * (1 - p_t)^γ * CE_loss
-    - gamma=2.0: 對易分類樣本懲罰減少 4 倍
-    - alpha=0.5: 平衡正負類權重
+    - gamma controls how strongly easy examples are down-weighted.
+    - alpha balances positive and negative class contribution.
     用於不平衡醫學影像分類，避免簡單樣本淹沒損失信號
     """
     def __init__(self, alpha=0.5, gamma=2.0, reduction='mean'):

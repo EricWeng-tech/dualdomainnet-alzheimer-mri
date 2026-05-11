@@ -2,7 +2,7 @@
 
 This project was developed with MRI data from the Alzheimer's Disease Neuroimaging Initiative (ADNI).
 
-Raw MRI scans, extracted slices, subject identifiers, HDF5 files, and trained checkpoints are not redistributed in this repository because ADNI data is governed by a data use agreement.
+Raw MRI scans, extracted slices, subject identifiers, HDF5 files, trained checkpoints, and visualizations containing MRI slices are not redistributed in this repository because ADNI data is governed by a data use agreement.
 
 To reproduce the training pipeline, obtain authorized ADNI access and prepare an HDF5 file with these keys:
 
@@ -19,3 +19,5 @@ python src/train_subject_cv.py --hdf5-path /path/to/adcn_slices.h5
 ```
 
 Do not commit ADNI-derived data files to GitHub.
+
+This repository intentionally includes only code, aggregate metrics, and non-image diagnostic plots. Training curves and aggregate evaluation plots do not contain subject-level images or identifiers.
