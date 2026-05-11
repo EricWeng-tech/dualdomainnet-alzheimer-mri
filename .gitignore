@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Data and model artifacts
+data/*.h5
+data/*.hdf5
+data/*.nii
+data/*.nii.gz
+data/*.dcm
+data/raw/
+data/processed/
+checkpoints/
+*.pth
+*.pt
+*.ckpt
+
+# Experiment outputs
+outputs/
+logs/
+wandb/
+
+# Personal/course artifacts
+*.rar
+*.zip
+*.docx
+R*_HW*
+*名單*
